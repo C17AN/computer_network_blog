@@ -17,7 +17,22 @@
       <a href="{% url 'post_new' %}" class="top-menu"
         ><span class="glyphicon glyphicon-plus"></span
       ></a>
-      <h1><a href="/">팀플뻐스좀타보고싶다</a></h1>
+      <h1><a href="/">컴네왕 김컴네</a></h1>
+      <div>
+        <button>
+          {% if request.user.is_authenticated %}
+          <a href="/accounts/logout/">로그아웃</a>
+          {% else %}
+          <a href="/accounts/login/">로그인</a>
+          {% endif %}
+        </button>
+        <button>
+          <a href="/join">회원가입</a>
+        </button>
+        <div>
+          현재 접속한 유저 : {{request.user}}
+        </div>
+      </div>
     </div>
     <div class="content container">
       <div class="row">
