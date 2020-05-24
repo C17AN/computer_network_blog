@@ -29,8 +29,9 @@
         <button>
           <a href="/join">회원가입</a>
         </button>
-        <div>
-          현재 접속한 유저 : {{request.user}}
+        <div style="margin-top: 10px;">
+          {% if request.user.is_authenticated %} 현재 접속한 유저 :
+          {{request.user}} {% else %} 로그인이 필요합니다. {% endif %}
         </div>
       </div>
     </div>
