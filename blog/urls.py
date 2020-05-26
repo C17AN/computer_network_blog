@@ -10,4 +10,5 @@ urlpatterns = [
     path('post/<int:pk>/remove/', views.post_remove, name='post_remove'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('join/', views.signup, name='join'),
+    path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]
