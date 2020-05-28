@@ -6,10 +6,11 @@
   <h1>
     <a href=""
       ><h1>
-        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} this point is detail</a>
+        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
       </h1></a
     >
   </h1>
-  <p>{{ post.text|linebreaksbr }} this point is text</p>
+  <p>{{ post.text|linebreaksbr }}</p>
+  <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
 </div>
 {% endfor %} {% endblock %}
