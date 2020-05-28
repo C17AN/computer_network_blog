@@ -7,8 +7,17 @@ from django.shortcuts import render, get_object_or_404
 from .forms import UserForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+#
+
 
 # Create your views here.
+def post_author_list(request, author_id):
+    #logged_in_user_posts = Post.objects.filter(pk__in=Post.objects.order_by().values('author_id'))
+    #logged_in_user_posts = get_object_or_404(Post, author_id = author_id)
+    logged_in_user_posts = Post.objects.filter(author_id = author_id)
+    return render(request, 'blog/post_author_list.html', {'posts': logged_in_user_posts})
+# 현재는 현재 작성자가 작성한 글들 밖에 볼 수가 없다 request.user 가 아니라 다른것으로 받아와야하는듯
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})

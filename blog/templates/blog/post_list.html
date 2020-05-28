@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
 <div class="post">
   <div class="date">
-    <p>{{ post.published_date }} by {{post.author}}</p>
+    <p>{{ post.published_date }}</p> <a href="{% url 'post_author_list' author_id=post.author_id %}">by {{post.author}}</a>
   </div>
   <h1>
     <a href=""
